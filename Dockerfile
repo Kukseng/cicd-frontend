@@ -9,7 +9,7 @@ COPY . .
 RUN npm run build
 
 # 2. Runner Stage
-FROM node:22-alpine AS runner
+FROM node:20-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
