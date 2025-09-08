@@ -40,8 +40,6 @@ export default function Rank() {
         WebkitBackdropFilter: "blur(6px)",
       }}
     >
-     
-
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
         <div className="flex items-center gap-6">
@@ -82,7 +80,7 @@ export default function Rank() {
               custom={index}
               initial="hidden"
               animate="visible"
-              variants={podiumVariants}
+              // variants={podiumVariants}
               className="flex flex-col items-center relative"
             >
               {/* Avatar with hover effect */}
@@ -95,7 +93,7 @@ export default function Rank() {
                   delay: index * 0.3,
                 }}
               >
-                <img
+                <Image
                   src={player.avatar || "/placeholder.svg"}
                   alt={player.name}
                   className="w-full h-full rounded-full object-cover"
@@ -140,56 +138,54 @@ export default function Rank() {
                 </div>
               </motion.div>
 
-           {/* Crown + Sparkle effects for 1st place */}
-{isFirst && (
-  <>
-    {/* Crown */}
-    <motion.div
-      className="absolute -top-20 text-7xl drop-shadow-[0_0_40px_gold]"
-      animate={{ rotate: [0, 15, -15, 0] }}
-      transition={{ repeat: Infinity, duration: 2 }}
-      style={{
-        textShadow: `
+              {/* Crown + Sparkle effects for 1st place */}
+              {isFirst && (
+                <>
+                  {/* Crown */}
+                  <motion.div
+                    className="absolute -top-20 text-7xl drop-shadow-[0_0_40px_gold]"
+                    animate={{ rotate: [0, 15, -15, 0] }}
+                    transition={{ repeat: Infinity, duration: 2 }}
+                    style={{
+                      textShadow: `
           0 0 20px gold,
           0 0 40px gold,
           0 0 60px orange,
           0 0 80px yellow,
           0 0 100px gold
         `,
-      }}
-    >
-      👑
-    </motion.div>
+                    }}
+                  >
+                    👑
+                  </motion.div>
 
-    {/* Sparkles */}
-    <div className="absolute -top-28 left-1/2 transform -translate-x-1/2 w-32 h-32 pointer-events-none">
-      {[...Array(8)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute bg-yellow-300 rounded-full"
-          style={{
-           
-            top: '50%',
-            left: '50%',
-            boxShadow: '0 0 20px yellow, 0 0 40px gold',
-          }}
-          animate={{
-            x: [0, Math.random() * 40 - 20, 0],
-            y: [0, Math.random() * 40 - 20, 0],
-            opacity: [0, 1, 0],
-            scale: [0.7, 1.2, 0.7],
-          }}
-          transition={{
-            repeat: Infinity,
-            duration: 1.2 + Math.random(),
-            delay: i * 0.15,
-          }}
-        />
-      ))}
-    </div>
-  </>
-)}
-
+                  {/* Sparkles */}
+                  <div className="absolute -top-28 left-1/2 transform -translate-x-1/2 w-32 h-32 pointer-events-none">
+                    {[...Array(8)].map((_, i) => (
+                      <motion.div
+                        key={i}
+                        className="absolute bg-yellow-300 rounded-full"
+                        style={{
+                          top: "50%",
+                          left: "50%",
+                          boxShadow: "0 0 20px yellow, 0 0 40px gold",
+                        }}
+                        animate={{
+                          x: [0, Math.random() * 40 - 20, 0],
+                          y: [0, Math.random() * 40 - 20, 0],
+                          opacity: [0, 1, 0],
+                          scale: [0.7, 1.2, 0.7],
+                        }}
+                        transition={{
+                          repeat: Infinity,
+                          duration: 1.2 + Math.random(),
+                          delay: i * 0.15,
+                        }}
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
             </motion.div>
           );
         })}

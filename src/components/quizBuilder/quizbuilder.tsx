@@ -50,6 +50,7 @@ export default function QuizBuilder() {
 
       {/* Main Content */}
       <QuizMainContent
+      theme=""
         questions={questions}
         activeQuestionId={activeQuestionId}
         onUpdateQuestionText={updateQuestionText}

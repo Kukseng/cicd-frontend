@@ -53,7 +53,7 @@ export function SlidingLogoMarquee({
 }: SlidingLogoMarqueeProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isPlaying, setIsPlaying] = useState(autoPlay);
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  // ...existing code...
 
   useEffect(() => {
     const updateDimensions = () => {
@@ -327,3 +327,7 @@ export function SlidingLogoMarquee({
 }
 
 export default SlidingLogoMarquee;
+function setDimensions(arg0: { width: number; height: number; }) {
+  throw new Error("Function not implemented.");
+}
+

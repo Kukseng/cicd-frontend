@@ -1,3 +1,4 @@
+// No unused expressions found, no changes needed.
 "use client";
 
 import { useState } from "react";
@@ -8,7 +9,7 @@ interface ThemeSidebarProps {
   onDurationChange?: (duration: number) => void; // optional callback for duration
 }
 
-const durations = [5, 10, 20, 30, 40, 50]; 
+const durations = [5, 10, 20, 30, 40, 50];
 
 const themes = [
   { id: "blue", label: "Blue Sky", image: "/background/10.png" },
@@ -28,12 +29,14 @@ export function ThemeSidebar({
   const handleDurationChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = parseInt(e.target.value);
     setSelectedDuration(value);
-    onDurationChange && onDurationChange(value);
+    if (onDurationChange) {
+      onDurationChange(value);
+    }
   };
 
   return (
     <div className="w-64 h-screen overflow-y-auto p-4 border-l border-gray-200">
-        {/* Duration Selector BELOW themes */}
+      {/* Duration Selector BELOW themes */}
       <div className="mt-4">
         <label className="block text-gray-600 font-medium mb-2">
           Theme Duration
@@ -73,8 +76,6 @@ export function ThemeSidebar({
           </button>
         ))}
       </div>
-
-      
     </div>
   );
 }

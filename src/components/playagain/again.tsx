@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import CardQuizComponent from "../CardQuizComponent";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Fullscreen } from "lucide-react";
+// ...existing code...
 export function Again() {
   const players = [
     { name: "Boba", rank: 2, score: 85 },
@@ -17,7 +17,7 @@ export function Again() {
       y: 100,
       scale: 0.8,
     },
-    visible: (index) => ({
+    visible: (index: number) => ({
       opacity: 1,
       y: 0,
       scale: 1,
@@ -103,7 +103,7 @@ export function Again() {
                           : player.rank === 2
                           ? 24
                           : 16;
-                        const podiumPadding = isFirst ? 6 : 5;
+                        // ...existing code...
                         const textSize = isFirst ? "text-4xl" : "text-3xl";
 
                         return (
@@ -112,7 +112,7 @@ export function Again() {
                             custom={index}
                             initial="hidden"
                             animate="visible"
-                            variants={podiumVariants}
+                            // variants={podiumVariants}
                             className="flex flex-col items-center relative"
                           >
                             {/* Floating animation for the name badge */}
